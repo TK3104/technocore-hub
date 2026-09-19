@@ -1,3 +1,8 @@
 .DS_Store
 *.log
+__pycache__/
+*.pyc
+identity.json
+*_state.json
+.env
 
