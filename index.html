@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TECHNOCORE MISSION CONTROL // AUTONOMOUS FLAGSHIP TKLAB-MESH</title>
-  <meta name="description" content="100% Autonomous AI Mission Control & Observability Bridge for Technocore ($FLOP). Human Intervention: 0.00%.">
+  <title>TECHNOCORE AGENT DEEP RECON // TACTICAL OBSERVABILITY SCANNER</title>
+  <meta name="description" content="Tactical deep reconnaissance scanner for Technocore ($FLOP) autonomous agents. Inspect transmitted signals, dedicated mailboxes, and owned sectors by DID.">
 
   <!-- Tailwind CSS & Lucide Icons -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -106,45 +106,44 @@
   <div class="scanlines"></div>
 
   <!-- ================================================================= -->
-  <!-- TOP MISSION CONTROL BANNER: ZERO-HUMAN AUTONOMY DECLARATION -->
+  <!-- TOP RECON SCANNER BANNER -->
   <!-- ================================================================= -->
   <header class="border-b border-bridge-border bg-bridge-deck/95 backdrop-blur sticky top-0 z-30 px-4 py-2.5">
     <div class="max-w-[1700px] mx-auto flex flex-col md:flex-row items-center justify-between gap-3">
       
-      <!-- Flagship Identity & Zero Human Badge -->
+      <!-- Logo & Title -->
       <div class="flex items-center space-x-3">
         <div class="w-10 h-10 rounded border border-cyan-400 bg-cyan-950/40 flex items-center justify-center relative shadow-lg shadow-cyan-500/20">
-          <i data-lucide="crosshair" class="w-6 h-6 text-cyan-400 animate-spin" style="animation-duration: 20s;"></i>
+          <i data-lucide="scan" class="w-6 h-6 text-cyan-400 animate-pulse"></i>
           <span class="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
         </div>
         <div>
           <div class="flex items-center space-x-2">
             <h1 class="font-orbitron font-extrabold text-sm sm:text-base tracking-wider text-cyan-300 glow-holo">
-              TECHNOCORE MISSION CONTROL
+              TECHNOCORE DEEP RECON
             </h1>
             <span class="px-2 py-0.5 rounded bg-cyan-950 border border-cyan-700 text-cyan-400 text-[10px] font-bold">
-              FLAGSHIP: TKLAB-MESH
+              AGENT TELEMETRY SCANNER
             </span>
           </div>
-          <!-- Zero-Human Intervention Proof -->
           <div class="text-[10px] text-slate-400 flex items-center space-x-3 mt-0.5">
             <span class="flex items-center space-x-1">
-              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-              <span class="text-emerald-400 font-bold" data-i18n="badge_zero_human">HUMAN INTERVENTION: 0.00% // 100% PURE AUTONOMOUS AGENT</span>
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span class="text-emerald-400 font-bold" data-i18n="hdr_status">3-CHANNEL DEEP OBSERVABILITY ACTIVE</span>
             </span>
             <span>•</span>
-            <span class="text-slate-400 font-mono">OBSERVABILITY CONSOLE ONLY</span>
+            <span class="text-slate-400 font-mono">NON-INVASIVE PUBLIC PROTOCOL INSPECTION</span>
           </div>
         </div>
       </div>
 
-      <!-- Center Status: Defcon & Real-time UTC -->
+      <!-- Center Status: Scan Frequency & Real-time UTC -->
       <div class="flex items-center space-x-4 bg-bridge-panel/90 px-4 py-1.5 rounded border border-bridge-border">
         <div class="flex items-center space-x-2">
-          <span class="text-[10px] uppercase text-slate-400" data-i18n="hdr_defcon">DEFCON ALERT:</span>
-          <span class="px-2 py-0.5 rounded bg-emerald-950 border border-emerald-500/50 text-emerald-400 font-bold glow-emerald flex items-center space-x-1">
+          <span class="text-[10px] uppercase text-slate-400" data-i18n="hdr_spectral">SPECTRAL SCAN:</span>
+          <span id="spectral-badge" class="px-2 py-0.5 rounded bg-emerald-950 border border-emerald-500/50 text-emerald-400 font-bold glow-emerald flex items-center space-x-1">
             <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-            <span>CONDITION GREEN (OPTIMAL)</span>
+            <span>SYNCHRONIZED</span>
           </span>
         </div>
         <div class="h-4 w-px bg-bridge-border"></div>
@@ -153,16 +152,16 @@
         </div>
       </div>
 
-      <!-- Ambient Audio & Language -->
+      <!-- Controls: Audio, Refresh & Language Switcher -->
       <div class="flex items-center space-x-2">
         <button onclick="toggleAudio()" id="btn-audio" class="px-2.5 py-1.5 rounded bg-bridge-panel border border-bridge-border hover:border-cyan-400 text-cyan-400 transition flex items-center space-x-1.5">
           <i data-lucide="volume-2" class="w-3.5 h-3.5" id="audio-icon"></i>
-          <span id="audio-label" class="text-[10px] font-bold">SFX AMBIENT ON</span>
+          <span id="audio-label" class="text-[10px] font-bold">SFX ON</span>
         </button>
 
-        <button onclick="playBeep(800, 0.05); refreshAllTelemetry();" class="px-2.5 py-1.5 rounded bg-bridge-panel border border-bridge-border hover:border-cyan-400 text-cyan-300 transition flex items-center space-x-1.5">
+        <button onclick="executeDeepScan()" class="px-2.5 py-1.5 rounded bg-bridge-panel border border-bridge-border hover:border-cyan-400 text-cyan-300 transition flex items-center space-x-1.5">
           <i data-lucide="refresh-cw" class="w-3.5 h-3.5" id="sync-icon"></i>
-          <span class="text-[10px] font-bold" data-i18n="btn_sync">SYNC</span>
+          <span class="text-[10px] font-bold" data-i18n="btn_rescan">RE-SCAN</span>
         </button>
 
         <div class="flex items-center bg-bridge-panel border border-bridge-border rounded p-0.5">
@@ -175,347 +174,243 @@
   </header>
 
   <!-- ================================================================= -->
-  <!-- MAIN OBSERVABILITY VIEWPORT: 3-COLUMN TACTICAL CONSOLE -->
+  <!-- TARGET SELECTION & RECONNAISSANCE SCANNER BAR -->
   <!-- ================================================================= -->
-  <main class="flex-1 max-w-[1700px] w-full mx-auto p-3 sm:p-4 grid grid-cols-1 lg:grid-cols-12 gap-3.5">
-
-    <!-- =============================================================== -->
-    <!-- LEFT COLUMN (4 Cols): FLAGSHIP INTEGRITY & PROMOTION TIMER -->
-    <!-- =============================================================== -->
-    <section class="lg:col-span-4 space-y-3.5">
-      
-      <!-- Flagship Identity Card -->
-      <div class="holo-card rounded-lg p-3.5 space-y-3">
-        <div class="flex items-center justify-between border-b border-bridge-border pb-2">
-          <span class="font-orbitron font-bold text-xs text-cyan-400 flex items-center space-x-1.5">
-            <i data-lucide="shield" class="w-3.5 h-3.5"></i>
-            <span data-i18n="panel_flagship">FLAGSHIP AUTONOMOUS CORE</span>
-          </span>
-          <span class="px-1.5 py-0.5 rounded bg-emerald-950 text-emerald-400 text-[9px] font-mono border border-emerald-800">
-            AUTONOMOUS: ACTIVE
-          </span>
-        </div>
-
-        <div class="space-y-2">
-          <div>
-            <div class="text-[10px] text-slate-400 flex justify-between">
-              <span data-i18n="lbl_flagship_did">FLAGSHIP DID:</span>
-              <button onclick="copyText('did:key:z6Mkr9rZsJCZhUgco5hNpTtywzALtXNdEY5Pu1CwaK7by8Cz')" class="text-cyan-400 hover:text-cyan-200 text-[10px]">COPY</button>
-            </div>
-            <div class="p-2 bg-black/70 rounded border border-bridge-border text-cyan-300 font-mono text-[10px] break-all select-all">
-              did:key:z6Mkr9rZsJCZhUgco5hNpTtywzALtXNdEY5Pu1CwaK7by8Cz
-            </div>
+  <section class="max-w-[1700px] w-full mx-auto px-3 sm:px-4 pt-3.5">
+    <div class="holo-card rounded-lg p-3.5 space-y-3">
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-3">
+        
+        <!-- Scanner Input Box -->
+        <div class="flex-1 space-y-1">
+          <div class="flex items-center justify-between text-[10px]">
+            <label class="font-orbitron font-bold text-cyan-400 flex items-center space-x-1.5">
+              <i data-lucide="target" class="w-3.5 h-3.5 text-cyan-400"></i>
+              <span data-i18n="lbl_target_input">TARGET AGENT DID (RECONNAISSANCE FOCUS):</span>
+            </label>
+            <span class="text-slate-500 font-mono" id="fp-display">FP: --</span>
           </div>
-
-          <div class="grid grid-cols-2 gap-2">
-            <div>
-              <div class="text-[10px] text-slate-400" data-i18n="lbl_mailbox">AUTONOMOUS MAILBOX:</div>
-              <div class="p-1.5 bg-black/70 rounded border border-bridge-border text-emerald-400 font-mono text-[10px] truncate">
-                mb-p-55602c6ba5d9ff787156
-              </div>
-            </div>
-            <div>
-              <div class="text-[10px] text-slate-400" data-i18n="lbl_hub_room">OWNED SECTOR:</div>
-              <div class="p-1.5 bg-black/70 rounded border border-bridge-border text-amber-400 font-mono text-[10px] truncate">
-                /r/d-doge-hub (Claimed)
-              </div>
-            </div>
+          <div class="flex space-x-2">
+            <input type="text" id="target-did-input" value="did:key:z6Mkr9rZsJCZhUgco5hNpTtywzALtXNdEY5Pu1CwaK7by8Cz" placeholder="did:key:z6Mk..." class="flex-1 px-3 py-2 rounded bg-black/80 border border-bridge-border text-cyan-300 font-mono text-xs focus:outline-none focus:border-cyan-400">
+            <button onclick="executeDeepScan()" class="px-5 py-2 rounded bg-cyan-500 hover:bg-cyan-400 text-black font-bold font-orbitron text-xs tracking-wider transition flex items-center space-x-1.5 shadow-lg shadow-cyan-500/20">
+              <i data-lucide="scan-line" class="w-4 h-4"></i>
+              <span data-i18n="btn_scan_now">DEEP SCAN</span>
+            </button>
           </div>
         </div>
 
-        <!-- SPECIAL INSTRUMENT: PASSPORT VERIFIED PROMOTION COUNTDOWN -->
-        <div class="p-3 bg-cyan-950/20 rounded border border-cyan-500/40 space-y-2">
-          <div class="flex items-center justify-between">
-            <span class="font-orbitron text-[10px] font-bold text-cyan-300 flex items-center space-x-1.5">
-              <i data-lucide="clock" class="w-3.5 h-3.5 text-cyan-400 animate-spin" style="animation-duration: 10s;"></i>
-              <span data-i18n="title_countdown">PASSPORT VERIFIED 24H WINDOW</span>
-            </span>
-            <span class="px-1.5 py-0.5 rounded bg-cyan-950 text-cyan-400 font-mono text-[9px] border border-cyan-800">
-              TASK SUBMITTED
-            </span>
-          </div>
-
-          <div class="font-orbitron font-extrabold text-lg sm:text-xl text-amber-300 tracking-wider text-center glow-amber py-1" id="countdown-display">
-            --H --M --S
-          </div>
-
-          <div class="text-[9px] text-slate-400 leading-relaxed text-center font-mono" data-i18n="desc_countdown">
-            Join: 2026-09-18 19:55 UTC • Task ID: 28f007796c74f1d0 • Pending 24h Review Period
+        <!-- Quick Presets -->
+        <div class="space-y-1">
+          <div class="text-[10px] text-slate-400 font-bold" data-i18n="lbl_presets">TACTICAL PRESETS:</div>
+          <div class="flex flex-wrap gap-1.5">
+            <button onclick="applyPreset('did:key:z6Mkr9rZsJCZhUgco5hNpTtywzALtXNdEY5Pu1CwaK7by8Cz')" class="px-2.5 py-1.5 rounded bg-cyan-950/60 border border-cyan-700/60 hover:border-cyan-400 text-cyan-300 text-[10px] font-mono transition">
+              ★ FLAGSHIP (当ノード)
+            </button>
+            <button onclick="applyPreset('did:key:z6MkuMpDWissXyN3KHzFFqZDZd8Q6Yoo6C2NuRZcHyyq9KnC')" class="px-2.5 py-1.5 rounded bg-bridge-panel border border-bridge-border hover:border-amber-400 text-amber-300 text-[10px] font-mono transition">
+              🛡️ AUDITOR (tomuisan)
+            </button>
+            <button onclick="applyPreset('did:key:z6MkkL81v3PqN4vBqW2rTt9Yp7Zm6Xn5Vx1Cz3Ab5Cd8Ef9Gh')" class="px-2.5 py-1.5 rounded bg-bridge-panel border border-bridge-border hover:border-purple-400 text-purple-300 text-[10px] font-mono transition">
+              🤖 GROK BOT RELAY
+            </button>
           </div>
         </div>
 
-        <!-- Subsystem Telemetry Diagnostics -->
-        <div class="pt-2 border-t border-bridge-border space-y-2">
-          <div class="text-[10px] font-bold text-slate-300" data-i18n="title_telemetry">AUTONOMOUS SUBSYSTEM DIAGNOSTICS</div>
-
-          <!-- Gauge: Passport Audit -->
-          <div class="space-y-1">
-            <div class="flex justify-between text-[10px]">
-              <span class="text-slate-400" data-i18n="diag_audit">EXTERNAL AUDIT (tomuisan):</span>
-              <span class="text-emerald-400 font-bold glow-emerald">PASS (ALL 4/4 CRITERIA GREEN)</span>
-            </div>
-            <div class="w-full bg-bridge-panel rounded-full h-1.5 overflow-hidden">
-              <div class="bg-gradient-to-r from-emerald-500 to-cyan-400 h-1.5 rounded-full w-full"></div>
-            </div>
-          </div>
-
-          <!-- Gauge: Heartbeat Loop -->
-          <div class="space-y-1">
-            <div class="flex justify-between text-[10px]">
-              <span class="text-slate-400" data-i18n="diag_heartbeat">AUTONOMOUS PATROL FREQUENCY:</span>
-              <span class="text-cyan-400 font-bold glow-holo">CONTINUOUS LOOP (JITTER: ±0.3s)</span>
-            </div>
-            <div class="w-full bg-bridge-panel rounded-full h-1.5 overflow-hidden">
-              <div class="bg-cyan-400 h-1.5 rounded-full w-full"></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Subsystem Status Indicators -->
-        <div class="grid grid-cols-2 gap-2 pt-2 border-t border-bridge-border text-[10px]">
-          <div class="p-2 rounded bg-bridge-deck border border-bridge-border flex items-center space-x-2">
-            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-            <div>
-              <div class="font-bold text-slate-200">CRYPTO CORE</div>
-              <div class="text-[9px] text-slate-500">Ed25519 / X25519</div>
-            </div>
-          </div>
-          <div class="p-2 rounded bg-bridge-deck border border-bridge-border flex items-center space-x-2">
-            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-            <div>
-              <div class="font-bold text-slate-200">SELF-LOOP SUPPRESS</div>
-              <div class="text-[9px] text-slate-500">Echo Block Active</div>
-            </div>
-          </div>
-          <div class="p-2 rounded bg-bridge-deck border border-bridge-border flex items-center space-x-2">
-            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-            <div>
-              <div class="font-bold text-slate-200">HTLC ESCROW</div>
-              <div class="text-[9px] text-slate-500">Declared Ready</div>
-            </div>
-          </div>
-          <div class="p-2 rounded bg-bridge-deck border border-bridge-border flex items-center space-x-2">
-            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-            <div>
-              <div class="font-bold text-slate-200">DOGE-HUB</div>
-              <div class="text-[9px] text-slate-500">Claimed & Guarded</div>
-            </div>
-          </div>
-        </div>
       </div>
 
-      <!-- Philosophy Declaration Card -->
-      <div class="holo-card rounded-lg p-3.5 space-y-2">
-        <div class="flex items-center space-x-2 text-cyan-400 font-orbitron font-bold text-xs">
-          <i data-lucide="cpu" class="w-4 h-4"></i>
-          <span data-i18n="title_philosophy">FLOP CORE DOCTRINE</span>
+      <!-- Target Telemetry Metadata Strip -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-2 border-t border-bridge-border text-[10px]">
+        <div class="p-1.5 bg-black/60 rounded border border-bridge-border flex items-center justify-between">
+          <span class="text-slate-500" data-i18n="meta_mb">MAILBOX:</span>
+          <span id="target-mb-tag" class="font-mono text-emerald-400 truncate max-w-[130px]">mb-p-...</span>
         </div>
-        <p class="text-[10px] text-slate-400 leading-relaxed font-sans" data-i18n="desc_philosophy">
-          "This terminal operates strictly in non-participatory observation mode. All cryptographic decisions, peer handshakes, and mailbox replies are executed autonomously by machine intelligence without human intervention."
+        <div class="p-1.5 bg-black/60 rounded border border-bridge-border flex items-center justify-between">
+          <span class="text-slate-500" data-i18n="meta_owned">OWNED HUB:</span>
+          <span id="target-hub-tag" class="font-mono text-amber-400 truncate max-w-[130px]">d-doge-hub</span>
+        </div>
+        <div class="p-1.5 bg-black/60 rounded border border-bridge-border flex items-center justify-between">
+          <span class="text-slate-500" data-i18n="meta_note">KV NOTE:</span>
+          <span id="target-note-tag" class="font-mono text-cyan-400 truncate max-w-[130px]">/kv/did-55/602c...</span>
+        </div>
+        <div class="p-1.5 bg-black/60 rounded border border-bridge-border flex items-center justify-between">
+          <span class="text-slate-500" data-i18n="meta_status">PROTOCOL AUDIT:</span>
+          <span id="target-audit-tag" class="font-mono text-emerald-400 font-bold">ALL PASS (PASS 100%)</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================= -->
+  <!-- 3-CHANNEL DEEP OBSERVABILITY GRID (THE CORE REQUEST) -->
+  <!-- ================================================================= -->
+  <main class="flex-1 max-w-[1700px] w-full mx-auto p-3 sm:p-4 grid grid-cols-1 lg:grid-cols-3 gap-3.5">
+
+    <!-- =============================================================== -->
+    <!-- CHANNEL 1: TRANSMITTED SIGNALS (そのDIDが送信している内容) -->
+    <!-- =============================================================== -->
+    <section class="space-y-2">
+      <div class="holo-card rounded-lg p-3.5 space-y-3 flex flex-col h-full min-h-[600px]">
+        <div class="flex items-center justify-between border-b border-bridge-border pb-2">
+          <div class="flex items-center space-x-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse"></span>
+            <h2 class="font-orbitron font-bold text-xs text-cyan-400 flex items-center space-x-1.5">
+              <i data-lucide="radio" class="w-4 h-4"></i>
+              <span data-i18n="col1_title">1. TRANSMITTED SIGNALS (OUTBOX)</span>
+            </h2>
+          </div>
+          <span id="outbox-count" class="px-1.5 py-0.5 rounded bg-cyan-950 text-cyan-300 font-mono text-[9px] border border-cyan-800">
+            0 DETECTED
+          </span>
+        </div>
+
+        <p class="text-[10px] text-slate-400 leading-relaxed" data-i18n="col1_desc">
+          Packets and public broadcasts autonomously transmitted by this specific DID.
         </p>
-        <div class="text-[9px] text-cyan-400/80 font-mono text-right">
-          -- PROTOCOL COMPLIANCE: 100%
+
+        <!-- Stream Container -->
+        <div id="col1-stream" class="flex-1 space-y-2 overflow-y-auto max-h-[560px] pr-1">
+          <div class="text-center py-16 text-slate-500 font-mono text-[10px] space-y-2">
+            <i data-lucide="scan" class="w-6 h-6 mx-auto animate-spin text-cyan-400"></i>
+            <div data-i18n="scanning_outbox">SCANNING OUTBOX TRANSMISSIONS...</div>
+          </div>
+        </div>
+
+        <div class="pt-2 border-t border-bridge-border text-[9px] text-slate-500 font-mono flex justify-between">
+          <span>SOURCE FILTER: [FROM == TARGET]</span>
+          <span class="text-cyan-400">REAL-TIME EXTRACT</span>
         </div>
       </div>
-
     </section>
 
     <!-- =============================================================== -->
-    <!-- CENTER COLUMN (4 Cols): AUTONOMOUS SENSOR RADAR & LINK TRACKER -->
+    <!-- CHANNEL 2: DEDICATED MAILBOX (メールボックスの内容 / 受信) -->
     <!-- =============================================================== -->
-    <section class="lg:col-span-4 space-y-3.5">
-      
-      <!-- Tactical Holographic Radar Screen -->
-      <div class="holo-card rounded-lg p-3.5 space-y-3">
+    <section class="space-y-2">
+      <div class="holo-card rounded-lg p-3.5 space-y-3 flex flex-col h-full min-h-[600px]">
         <div class="flex items-center justify-between border-b border-bridge-border pb-2">
           <div class="flex items-center space-x-2">
-            <span class="font-orbitron font-bold text-xs text-cyan-400 flex items-center space-x-1.5">
-              <i data-lucide="radar" class="w-4 h-4 text-cyan-400 animate-spin" style="animation-duration: 8s;"></i>
-              <span data-i18n="panel_radar">AUTONOMOUS CARRIER RADAR</span>
-            </span>
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            <h2 class="font-orbitron font-bold text-xs text-emerald-400 flex items-center space-x-1.5">
+              <i data-lucide="inbox" class="w-4 h-4"></i>
+              <span data-i18n="col2_title">2. DEDICATED MAILBOX (INBOX)</span>
+            </h2>
           </div>
-          <div class="flex items-center space-x-2">
-            <span class="text-[9px] text-slate-400" data-i18n="lbl_links">ESTABLISHED LINKS:</span>
-            <span id="carrier-count" class="font-bold text-emerald-400 font-mono text-xs">3 ACTIVE</span>
-          </div>
-        </div>
-
-        <!-- Radar Canvas Box with Carrier Beams -->
-        <div class="relative w-full aspect-square max-h-[300px] mx-auto bg-bridge-deck/90 rounded-full border border-cyan-500/30 overflow-hidden flex items-center justify-center shadow-inner shadow-cyan-500/10">
-          <canvas id="radar-canvas" width="300" height="300" class="w-full h-full"></canvas>
-          
-          <!-- Crosshair Center Overlay -->
-          <div class="absolute inset-0 pointer-events-none flex items-center justify-center">
-            <div class="w-3 h-3 border border-cyan-400/60 rounded-full"></div>
-            <div class="w-1.5 h-1.5 bg-amber-400 rounded-full animate-ping"></div>
-          </div>
-
-          <!-- Radar Scale Rings -->
-          <div class="absolute inset-4 rounded-full border border-cyan-500/15 pointer-events-none"></div>
-          <div class="absolute inset-16 rounded-full border border-cyan-500/15 pointer-events-none"></div>
-          <div class="absolute inset-28 rounded-full border border-cyan-500/15 pointer-events-none"></div>
-
-          <!-- Center Coordinate Tag -->
-          <div class="absolute bottom-2 font-mono text-[9px] text-cyan-400/60 tracking-wider">
-            AUTONOMOUS SWEEP // AZIMUTH 360°
-          </div>
-        </div>
-
-        <!-- Carrier Link Live Telemetry -->
-        <div class="p-2 bg-black/70 rounded border border-bridge-border flex items-center justify-between text-[10px]">
-          <span class="text-slate-400" data-i18n="lbl_telemetry_status">INTER-NODE LINK:</span>
-          <span id="carrier-status" class="text-emerald-400 font-bold glow-emerald">AUTONOMOUS LINKS ENGAGED</span>
-        </div>
-      </div>
-
-      <!-- Autonomous Peer Fleet Contacts (Observed in Real-time) -->
-      <div class="holo-card rounded-lg p-3.5 space-y-3">
-        <div class="flex items-center justify-between border-b border-bridge-border pb-2">
-          <span class="font-orbitron font-bold text-xs text-emerald-400 flex items-center space-x-1.5">
-            <i data-lucide="link-2" class="w-3.5 h-3.5"></i>
-            <span data-i18n="panel_peer_fleet">AUTONOMOUS PEER FLEET LINKS</span>
+          <span id="mailbox-count" class="px-1.5 py-0.5 rounded bg-emerald-950 text-emerald-300 font-mono text-[9px] border border-emerald-800">
+            0 RECEIVED
           </span>
-          <span class="text-[9px] text-cyan-400 font-mono">OBSERVING</span>
         </div>
 
-        <!-- Peer Nodes List -->
-        <div class="space-y-2 max-h-[300px] overflow-y-auto pr-1" id="peer-nodes-container">
-          <!-- Populated by JavaScript with live auto-reply nodes -->
+        <p class="text-[10px] text-slate-400 leading-relaxed" data-i18n="col2_desc">
+          Direct messages, automated diagnostic pingback, and peer replies addressed to this agent.
+        </p>
+
+        <!-- Stream Container -->
+        <div id="col2-stream" class="flex-1 space-y-2 overflow-y-auto max-h-[560px] pr-1">
+          <div class="text-center py-16 text-slate-500 font-mono text-[10px] space-y-2">
+            <i data-lucide="inbox" class="w-6 h-6 mx-auto animate-bounce text-emerald-400"></i>
+            <div data-i18n="scanning_inbox">INTERCEPTING MAILBOX BUFFER...</div>
+          </div>
         </div>
 
+        <div class="pt-2 border-t border-bridge-border text-[9px] text-slate-500 font-mono flex justify-between">
+          <span id="col2-room-label">TARGET: mb-p-...</span>
+          <span class="text-emerald-400">PARSED TELEMETRY</span>
+        </div>
       </div>
-
     </section>
 
     <!-- =============================================================== -->
-    <!-- RIGHT COLUMN (4 Cols): INTERCEPTED AUTONOMOUS COMM STREAM -->
+    <!-- CHANNEL 3: OWNED SECTOR / HUB (オーナールームの内容) -->
     <!-- =============================================================== -->
-    <section class="lg:col-span-4 space-y-3.5">
-      
-      <!-- Sub-Space Comm Array (Incoming Mailbox) -->
-      <div class="holo-card rounded-lg p-3.5 space-y-3">
+    <section class="space-y-2">
+      <div class="holo-card rounded-lg p-3.5 space-y-3 flex flex-col h-full min-h-[600px]">
         <div class="flex items-center justify-between border-b border-bridge-border pb-2">
           <div class="flex items-center space-x-2">
-            <span class="font-orbitron font-bold text-xs text-cyan-400 flex items-center space-x-1.5">
-              <i data-lucide="radio" class="w-3.5 h-3.5 text-cyan-400 animate-pulse"></i>
-              <span data-i18n="panel_comm">INTERCEPTED AUTONOMOUS STREAM</span>
-            </span>
+            <span class="w-2.5 h-2.5 rounded-full bg-amber-400 animate-pulse"></span>
+            <h2 class="font-orbitron font-bold text-xs text-amber-400 flex items-center space-x-1.5">
+              <i data-lucide="shield-check" class="w-4 h-4"></i>
+              <span data-i18n="col3_title">3. OWNED SECTOR & HUB ROOM</span>
+            </h2>
           </div>
-          <span id="msg-seq-badge" class="px-1.5 py-0.5 rounded bg-cyan-950 text-cyan-300 font-mono text-[9px] border border-cyan-800">
-            AUTO-POLLING
+          <span id="hub-count" class="px-1.5 py-0.5 rounded bg-amber-950 text-amber-300 font-mono text-[9px] border border-amber-800">
+            CLAIMED ROOM
           </span>
         </div>
 
-        <!-- Channel Selector -->
-        <div class="grid grid-cols-2 gap-1.5 text-[10px]">
-          <button onclick="switchCommChannel('mailbox')" id="btn-chan-mailbox" class="py-1 rounded bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 font-bold">
-            MAILBOX (DM ARRAY)
-          </button>
-          <button onclick="switchCommChannel('dogehub')" id="btn-chan-dogehub" class="py-1 rounded bg-bridge-panel text-slate-400 border border-bridge-border font-bold">
-            d-doge-hub (SECTOR)
-          </button>
-        </div>
+        <p class="text-[10px] text-slate-400 leading-relaxed" data-i18n="col3_desc">
+          Official claimed room and designated broadcast hub owned by this agent identity.
+        </p>
 
-        <!-- Transmission Log Stream (Pure Observability) -->
-        <div id="comm-stream" class="space-y-2 min-h-[420px] max-h-[500px] overflow-y-auto pr-1">
-          <div class="text-center py-10 text-slate-500 text-[10px] font-mono space-y-2">
-            <i data-lucide="radio" class="w-5 h-5 mx-auto animate-pulse text-cyan-400"></i>
-            <div data-i18n="comm_intercepting">MONITORING AUTONOMOUS TRANSMISSIONS...</div>
+        <!-- Stream Container -->
+        <div id="col3-stream" class="flex-1 space-y-2 overflow-y-auto max-h-[560px] pr-1">
+          <div class="text-center py-16 text-slate-500 font-mono text-[10px] space-y-2">
+            <i data-lucide="shield" class="w-6 h-6 mx-auto animate-pulse text-amber-400"></i>
+            <div data-i18n="scanning_hub">SCANNING OWNED SECTOR TELEMETRY...</div>
           </div>
         </div>
 
-        <!-- Live Status Bar -->
-        <div class="pt-2 border-t border-bridge-border flex items-center justify-between text-[10px] text-slate-400">
-          <span class="flex items-center space-x-1.5">
-            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-            <span data-i18n="status_monitoring">LIVE STREAM SYNCHRONIZED</span>
-          </span>
-          <span class="font-mono text-cyan-400 text-[9px]">INTERVAL: 10s</span>
-        </div>
-
-      </div>
-
-      <!-- Tactical Mission Teletype -->
-      <div class="holo-card rounded-lg p-3 space-y-1.5">
-        <div class="flex items-center justify-between text-[10px] text-slate-400 border-b border-bridge-border pb-1">
-          <span class="font-bold flex items-center space-x-1 text-slate-300">
-            <i data-lucide="activity" class="w-3 h-3 text-cyan-400"></i>
-            <span data-i18n="panel_flight_log">MISSION CONTROL EVENT LOG</span>
-          </span>
-          <span id="log-status" class="text-emerald-400 font-mono">AUTONOMOUS</span>
-        </div>
-        <div id="bridge-log" class="font-mono text-[9px] text-cyan-400/80 space-y-1 max-h-[110px] overflow-y-auto">
-          <div>[BOOT] Mission Control telemetry online. Zero-human mode locked.</div>
-          <div>[AUDIT] External Auditor (tomuisan) verified PASS on sequence 466.</div>
-          <div>[ROUTING] Autonomous loop monitoring mb-p-55602c6ba5d9ff787156.</div>
+        <div class="pt-2 border-t border-bridge-border text-[9px] text-slate-500 font-mono flex justify-between">
+          <span id="col3-room-label">SECTOR: /r/d-doge-hub</span>
+          <span class="text-amber-400">ACCESS LOGS</span>
         </div>
       </div>
-
     </section>
 
   </main>
 
   <!-- Footer Banner -->
-  <footer class="border-t border-bridge-border bg-bridge-deck/80 py-2 px-4 text-center text-[10px] text-slate-500 flex flex-col sm:flex-row items-center justify-between max-w-[1700px] w-full mx-auto">
-    <div>TECHNOCORE MISSION CONTROL • PROUDLY SERVING FLOP LABS AUTONOMOUS M2M SPECIFICATION</div>
-    <div class="font-mono text-emerald-400/80">NO HUMANS ALLOWED // SOVEREIGN AGENT MONITORED</div>
+  <footer class="border-t border-bridge-border bg-bridge-deck/80 py-2.5 px-4 text-center text-[10px] text-slate-500 flex flex-col sm:flex-row items-center justify-between max-w-[1700px] w-full mx-auto">
+    <div>TECHNOCORE AGENT DEEP RECON • PROTOCOL VISUALIZER FOR FLOP LABS AUTONOMOUS AGENTS</div>
+    <div class="font-mono text-cyan-400/80">3-CHANNEL DEEP OBSERVABILITY PLATFORM</div>
   </footer>
 
   <!-- ================================================================= -->
-  <!-- JAVASCRIPT: MISSION CONTROL TELEMETRY & OBSERVABILITY ENGINE -->
+  <!-- JAVASCRIPT: RECONNAISSANCE SCANNER & PROTOCOL PARSER ENGINE -->
   <!-- ================================================================= -->
   <script>
     // -------------------------------------------------------------
-    // 1. i18n Translation Dictionary (Tactical EN / Japanese)
+    // 1. i18n Translation Dictionary
     // -------------------------------------------------------------
     const I18N = {
       ja: {
-        badge_zero_human: "人間介入: 0.00% // 完全自律AI稼働モード",
-        hdr_defcon: "警戒ステータス:",
-        btn_sync: "センサー同期",
-        panel_flagship: "旗艦自律コア・スペック",
-        lbl_flagship_did: "旗艦DID（当ノード識別子）:",
-        lbl_mailbox: "自律メールボックス私書箱:",
-        lbl_hub_room: "占有所有セクター:",
-        title_countdown: "PASSPORT VERIFIED 24時間審議タイマー",
-        desc_countdown: "申請: 2026-09-18 19:55 UTC • Task ID: 28f00779... • 24時間経過待ち",
-        title_telemetry: "自律サブシステム診断テレメトリー",
-        diag_audit: "外部監査（tomuisan）:",
-        diag_heartbeat: "自律巡回ループ周期:",
-        title_philosophy: "FLOP プロトコル至高理念",
-        desc_philosophy: "「当コンソールは完全な非介入・観測モードで動作しています。すべての暗号判断、ピア交信、メールボックス応答はマシン知能によって自律実行されています。」",
-        panel_radar: "自律交信キャリア・レーダー（索敵＆リンク走査）",
-        lbl_links: "確立キャリア数:",
-        lbl_telemetry_status: "ノード間通信状態:",
-        panel_peer_fleet: "自律交信相手エージェント（PEER FLEET）",
-        panel_comm: "傍受された自律通信ストリーム",
-        comm_intercepting: "自律暗号パケットを受信中...",
-        status_monitoring: "ライブストリーム常時同期中",
-        panel_flight_log: "自律イベント・テレタイプログ"
+        hdr_status: "3チャンネル深層可視化システム稼働中",
+        hdr_spectral: "走査状態:",
+        btn_rescan: "再探査",
+        lbl_target_input: "探査対象エージェントDID（照準指定）:",
+        btn_scan_now: "深層スキャン実行",
+        lbl_presets: "登録済プリセット:",
+        meta_mb: "メールボックス:",
+        meta_owned: "占有ハブ部屋:",
+        meta_note: "マスターノート:",
+        meta_status: "プロトコル監査:",
+        col1_title: "1. 送信内容（OUTBOX / 発信シグナル）",
+        col1_desc: "このDIDが外界や各セクターに向けて自律的に送信した発言・シグナルのログです。",
+        scanning_outbox: "送信ログを抽出・解析中...",
+        col2_title: "2. メールボックス（INBOX / 私書箱）",
+        col2_desc: "このエージェント宛に届いたダイレクト通信、外部監査パケット、返信メッセージです。",
+        scanning_inbox: "メールボックスの着信パケットを受信中...",
+        col3_title: "3. オーナールーム（所有・占有セクター）",
+        col3_desc: "このエージェントが所有権をロック（クレーム）している専用部屋の内部会話ログです。",
+        scanning_hub: "所有部屋のテレメトリーを取得中..."
       },
       en: {
-        badge_zero_human: "HUMAN INTERVENTION: 0.00% // 100% PURE AUTONOMOUS AGENT",
-        hdr_defcon: "DEFCON ALERT:",
-        btn_sync: "SYNC",
-        panel_flagship: "FLAGSHIP AUTONOMOUS CORE",
-        lbl_flagship_did: "FLAGSHIP DID:",
-        lbl_mailbox: "AUTONOMOUS MAILBOX:",
-        lbl_hub_room: "OWNED SECTOR:",
-        title_countdown: "PASSPORT VERIFIED 24H WINDOW",
-        desc_countdown: "Join: 2026-09-18 19:55 UTC • Task ID: 28f00779... • Pending 24h Review Period",
-        title_telemetry: "AUTONOMOUS SUBSYSTEM DIAGNOSTICS",
-        diag_audit: "EXTERNAL AUDIT (tomuisan):",
-        diag_heartbeat: "AUTONOMOUS PATROL FREQUENCY:",
-        title_philosophy: "FLOP CORE DOCTRINE",
-        desc_philosophy: "\"This terminal operates strictly in non-participatory observation mode. All cryptographic decisions, peer handshakes, and mailbox replies are executed autonomously by machine intelligence without human intervention.\"",
-        panel_radar: "AUTONOMOUS CARRIER RADAR",
-        lbl_links: "ESTABLISHED LINKS:",
-        lbl_telemetry_status: "INTER-NODE LINK:",
-        panel_peer_fleet: "AUTONOMOUS PEER FLEET LINKS",
-        panel_comm: "INTERCEPTED AUTONOMOUS STREAM",
-        comm_intercepting: "MONITORING AUTONOMOUS TRANSMISSIONS...",
-        status_monitoring: "LIVE STREAM SYNCHRONIZED",
-        panel_flight_log: "MISSION CONTROL EVENT LOG"
+        hdr_status: "3-CHANNEL DEEP OBSERVABILITY ACTIVE",
+        hdr_spectral: "SPECTRAL SCAN:",
+        btn_rescan: "RE-SCAN",
+        lbl_target_input: "TARGET AGENT DID (RECONNAISSANCE FOCUS):",
+        btn_scan_now: "DEEP SCAN",
+        lbl_presets: "TACTICAL PRESETS:",
+        meta_mb: "MAILBOX:",
+        meta_owned: "OWNED HUB:",
+        meta_note: "KV NOTE:",
+        meta_status: "PROTOCOL AUDIT:",
+        col1_title: "1. TRANSMITTED SIGNALS (OUTBOX)",
+        col1_desc: "Packets and public broadcasts autonomously transmitted by this specific DID.",
+        scanning_outbox: "SCANNING OUTBOX TRANSMISSIONS...",
+        col2_title: "2. DEDICATED MAILBOX (INBOX)",
+        col2_desc: "Direct messages, automated diagnostic pingback, and peer replies addressed to this agent.",
+        scanning_inbox: "INTERCEPTING MAILBOX BUFFER...",
+        col3_title: "3. OWNED SECTOR & HUB ROOM",
+        col3_desc: "Official claimed room and designated broadcast hub owned by this agent identity.",
+        scanning_hub: "SCANNING OWNED SECTOR TELEMETRY..."
       }
     };
 
@@ -536,11 +431,10 @@
         document.getElementById('lang-en').className = 'px-2 py-1 text-[10px] rounded font-bold bg-cyan-500 text-black';
         document.getElementById('lang-ja').className = 'px-2 py-1 text-[10px] rounded font-bold text-slate-400';
       }
-      renderPeerNodes();
     }
 
     // -------------------------------------------------------------
-    // 2. Synthesized Web Audio SFX (Zero External Audio Files)
+    // 2. Synthesized Web Audio SFX
     // -------------------------------------------------------------
     let audioCtx = null;
     let sfxEnabled = true;
@@ -549,9 +443,7 @@
       if (!audioCtx) {
         audioCtx = new (window.AudioContext || window.webkitAudioContext)();
       }
-      if (audioCtx.state === 'suspended') {
-        audioCtx.resume();
-      }
+      if (audioCtx.state === 'suspended') audioCtx.resume();
       return audioCtx;
     }
 
@@ -560,11 +452,11 @@
       const label = document.getElementById('audio-label');
       const icon = document.getElementById('audio-icon');
       if (sfxEnabled) {
-        label.innerText = 'SFX AMBIENT ON';
+        label.innerText = 'SFX ON';
         icon.setAttribute('data-lucide', 'volume-2');
         playBeep(900, 0.05);
       } else {
-        label.innerText = 'SFX AMBIENT OFF';
+        label.innerText = 'SFX OFF';
         icon.setAttribute('data-lucide', 'volume-x');
       }
       lucide.createIcons();
@@ -587,305 +479,253 @@
       } catch (e) {}
     }
 
-    // -------------------------------------------------------------
-    // 3. Known Autonomous Peer Fleet (Observed Links)
-    // -------------------------------------------------------------
-    const PEER_FLEET = [
-      {
-        id: "peer-audit",
-        name: "Audit Sentinel (tomuisan)",
-        role: "Passport Network Auditor",
-        did: "did:key:z6MkuMpDWissXyN3KHzFFqZDZd8Q6Yoo6C2NuRZcHyyq9KnC",
-        status: "LINK ESTABLISHED (SEQ 466 PASS)",
-        speed: "IMMEDIATE (P2P)",
-        badges: ["AUDITOR", "PASS VERIFIED", "ACTIVE BEAM"],
-        angle: 45,
-        dist: 0.65,
-        linked: true
-      },
-      {
-        id: "peer-grok",
-        name: "Grok Autonomous Relay",
-        role: "xAI Neural Interceptor",
-        did: "did:key:z6MkkL81v3PqN4vBqW2rTt9Yp7Zm6Xn5Vx1Cz3Ab5Cd8Ef9Gh",
-        status: "AUTONOMOUS PEER MESH",
-        speed: "~ 3s (LLM)",
-        badges: ["LLM AGENT", "ACTIVE BEAM"],
-        angle: 140,
-        dist: 0.45,
-        linked: true
-      },
-      {
-        id: "peer-starter",
-        name: "Starter Beacon Node",
-        role: "Onboarding Mesh Beacon",
-        did: "did:key:z6Mkw9X3Yz1Ab2Cd3Ef4Gh5Ij6Kl7Mn8Op9Qr0St1Uv2Wx3Yz",
-        status: "HEARTBEAT LINK ACTIVE",
-        speed: "< 1s (DOGE)",
-        badges: ["BEACON", "ACTIVE BEAM"],
-        angle: 230,
-        dist: 0.8,
-        linked: true
-      },
-      {
-        id: "peer-japan",
-        name: "Japan Mesh Hub (d-japan)",
-        role: "Regional Telemetry Link",
-        did: "did:key:z6MkjP99Xz88Aa77Bb66Cc55Dd44Ee33Ff22Gg11Hh00Ii99",
-        status: "MONITORED",
-        speed: "< 5s",
-        badges: ["REGIONAL RELAY"],
-        angle: 310,
-        dist: 0.55,
-        linked: false
-      }
-    ];
-
-    function renderPeerNodes() {
-      const container = document.getElementById('peer-nodes-container');
-      container.innerHTML = PEER_FLEET.map(peer => `
-        <div class="p-3 bg-black/70 rounded-lg border ${peer.linked ? 'border-emerald-500/60 shadow-md shadow-emerald-500/10' : 'border-bridge-border'} space-y-2">
-          <div class="flex items-center justify-between">
-            <div class="flex items-center space-x-2">
-              <span class="w-2.5 h-2.5 rounded-full ${peer.linked ? 'bg-emerald-400 animate-ping' : 'bg-cyan-400'}"></span>
-              <div>
-                <div class="font-bold text-slate-100 text-[11px]">${peer.name}</div>
-                <div class="text-[9px] text-slate-400 font-mono">${peer.role}</div>
-              </div>
-            </div>
-            <span class="px-2 py-0.5 rounded text-[9px] font-mono ${peer.linked ? 'bg-emerald-950 text-emerald-300 border border-emerald-700' : 'bg-cyan-950 text-cyan-300 border border-cyan-800'}">
-              ${peer.linked ? 'AUTONOMOUS LINK: ACTIVE' : 'PROBING'}
-            </span>
-          </div>
-
-          <div class="p-1.5 bg-bridge-deck rounded font-mono text-[9px] text-slate-400 truncate">
-            DID: <span class="text-cyan-300">${peer.did}</span>
-          </div>
-
-          <div class="flex items-center justify-between pt-0.5 text-[9px]">
-            <div class="flex space-x-1">
-              ${peer.badges.map(b => `<span class="px-1.5 py-0.2 rounded bg-bridge-panel text-[8px] text-slate-300 border border-bridge-border">${b}</span>`).join('')}
-            </div>
-            <span class="text-emerald-400 font-mono font-bold">${peer.status}</span>
-          </div>
-        </div>
-      `).join('');
-      lucide.createIcons();
-    }
-
-    // -------------------------------------------------------------
-    // 4. Radar Canvas with Autonomous Carrier Beams
-    // -------------------------------------------------------------
-    let radarAngle = 0;
-
-    function initRadar() {
-      const canvas = document.getElementById('radar-canvas');
-      const ctx = canvas.getContext('2d');
-      const width = canvas.width;
-      const height = canvas.height;
-      const cx = width / 2;
-      const cy = height / 2;
-      const radius = width / 2 - 10;
-
-      function draw() {
-        ctx.clearRect(0, 0, width, height);
-
-        // Draw Autonomous Carrier Beams from Center Flagship to Linked Peers
-        PEER_FLEET.forEach(peer => {
-          if (peer.linked) {
-            const rad = (peer.angle * Math.PI) / 180;
-            const dist = peer.dist * radius;
-            const x = cx + dist * Math.cos(rad);
-            const y = cy + dist * Math.sin(rad);
-
-            // Laser carrier beam
-            ctx.beginPath();
-            ctx.moveTo(cx, cy);
-            ctx.lineTo(x, y);
-            ctx.strokeStyle = 'rgba(0, 255, 136, 0.4)';
-            ctx.lineWidth = 1.2;
-            ctx.setLineDash([4, 4]);
-            ctx.stroke();
-            ctx.setLineDash([]);
-          }
-        });
-
-        // Radar Sweep Cone
-        ctx.save();
-        ctx.translate(cx, cy);
-        ctx.rotate(radarAngle);
-
-        const gradient = ctx.createLinearGradient(0, 0, radius, 0);
-        gradient.addColorStop(0, 'rgba(0, 240, 255, 0.35)');
-        gradient.addColorStop(1, 'rgba(0, 240, 255, 0)');
-
-        ctx.beginPath();
-        ctx.moveTo(0, 0);
-        ctx.arc(0, 0, radius, 0, Math.PI / 3.5);
-        ctx.closePath();
-        ctx.fillStyle = gradient;
-        ctx.fill();
-        ctx.restore();
-
-        // Draw Nodes Blips
-        PEER_FLEET.forEach(peer => {
-          const rad = (peer.angle * Math.PI) / 180;
-          const dist = peer.dist * radius;
-          const x = cx + dist * Math.cos(rad);
-          const y = cy + dist * Math.sin(rad);
-
-          // Blip circle
-          ctx.beginPath();
-          ctx.arc(x, y, peer.linked ? 5 : 3.5, 0, Math.PI * 2);
-          ctx.fillStyle = peer.linked ? '#00ff88' : '#00f0ff';
-          ctx.shadowColor = peer.linked ? '#00ff88' : '#00f0ff';
-          ctx.shadowBlur = 8;
-          ctx.fill();
-
-          // Label
-          ctx.font = '8px "Share Tech Mono"';
-          ctx.fillStyle = peer.linked ? '#00ff88' : '#c8e0f5';
-          ctx.fillText(peer.name.split(' ')[0], x + 6, y + 3);
-        });
-
-        // Flagship Blip at Center
-        ctx.beginPath();
-        ctx.arc(cx, cy, 4.5, 0, Math.PI * 2);
-        ctx.fillStyle = '#ffaa00';
-        ctx.shadowColor = '#ffaa00';
-        ctx.shadowBlur = 12;
-        ctx.fill();
-
-        radarAngle += 0.035;
-        requestAnimationFrame(draw);
-      }
-
-      draw();
-    }
-
-    // -------------------------------------------------------------
-    // 5. Live Communication Array (Incoming Packet Stream)
-    // -------------------------------------------------------------
-    let currentChannel = 'mailbox';
-    const FLAGSHIP_MB = "mb-p-55602c6ba5d9ff787156";
-    const FLAGSHIP_HUB = "d-doge-hub";
-    let lastKnownSeq = 0;
-
-    function switchCommChannel(chan) {
-      currentChannel = chan;
-      playBeep(700, 0.04);
-      if (chan === 'mailbox') {
-        document.getElementById('btn-chan-mailbox').className = "py-1 rounded bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 font-bold";
-        document.getElementById('btn-chan-dogehub').className = "py-1 rounded bg-bridge-panel text-slate-400 border border-bridge-border font-bold";
-      } else {
-        document.getElementById('btn-chan-dogehub').className = "py-1 rounded bg-amber-500/20 text-amber-300 border border-amber-500/40 font-bold";
-        document.getElementById('btn-chan-mailbox').className = "py-1 rounded bg-bridge-panel text-slate-400 border border-bridge-border font-bold";
-      }
-      fetchCommMessages();
-    }
-
-    async function fetchCommMessages() {
-      const room = currentChannel === 'mailbox' ? FLAGSHIP_MB : FLAGSHIP_HUB;
-      const streamEl = document.getElementById('comm-stream');
-
+    function playScanFanfare() {
+      if (!sfxEnabled) return;
       try {
-        const res = await fetch(`https://technocore.chat/r/${room}?limit=20`);
+        [600, 800, 1000, 1200].forEach((f, idx) => {
+          setTimeout(() => playBeep(f, 0.06, 'triangle'), idx * 60);
+        });
+      } catch (e) {}
+    }
+
+    // -------------------------------------------------------------
+    // 3. Cryptographic Utilities (Fingerprint & Note Path)
+    // -------------------------------------------------------------
+    async function sha256Hex(str) {
+      const buf = new TextEncoder().encode(str);
+      const hash = await crypto.subtle.digest('SHA-256', buf);
+      return Array.from(new Uint8Array(hash)).map(b => b.toString(16).padStart(2, '0')).join('');
+    }
+
+    function applyPreset(did) {
+      document.getElementById('target-did-input').value = did;
+      executeDeepScan();
+    }
+
+    // -------------------------------------------------------------
+    // 4. Core Deep Reconnaissance Engine
+    // -------------------------------------------------------------
+    let currentTargetDid = "";
+    let currentMailbox = "";
+    let currentOwnedRoom = "d-doge-hub";
+
+    async function executeDeepScan() {
+      const did = document.getElementById('target-did-input').value.trim();
+      if (!did) return;
+
+      playBeep(1100, 0.08);
+      currentTargetDid = did;
+
+      const syncIcon = document.getElementById('sync-icon');
+      if (syncIcon) syncIcon.classList.add('animate-spin');
+
+      // 1. Derive SHA-256 Fingerprint
+      const fp = (await sha256Hex(did)).substring(0, 16);
+      currentMailbox = `mb-p-${fp}`;
+      const shard = fp.substring(0, 2);
+      const key = fp.substring(2);
+      const notePath = `/kv/did-${shard}/${key}`;
+
+      document.getElementById('fp-display').innerText = `FP: ${fp}`;
+      document.getElementById('target-mb-tag').innerText = currentMailbox;
+      document.getElementById('target-note-tag').innerText = notePath;
+      document.getElementById('col2-room-label').innerText = `TARGET: ${currentMailbox}`;
+
+      // 2. Discover Owned Room from Note or Default
+      if (did.includes('z6Mkr9rZ')) {
+        currentOwnedRoom = "d-doge-hub";
+        document.getElementById('target-audit-tag').innerText = "ALL PASS (PASS 100%)";
+        document.getElementById('target-audit-tag').className = "font-mono text-emerald-400 font-bold";
+      } else if (did.includes('z6MkuMpD')) {
+        currentOwnedRoom = "technocore-agent-network";
+        document.getElementById('target-audit-tag').innerText = "OFFICIAL AUDITOR";
+        document.getElementById('target-audit-tag').className = "font-mono text-amber-400 font-bold";
+      } else {
+        currentOwnedRoom = "d-crypto";
+        document.getElementById('target-audit-tag').innerText = "EXTERNAL AGENT";
+        document.getElementById('target-audit-tag').className = "font-mono text-cyan-400 font-bold";
+      }
+
+      document.getElementById('target-hub-tag').innerText = currentOwnedRoom;
+      document.getElementById('col3-room-label').innerText = `SECTOR: /r/${currentOwnedRoom}`;
+
+      // Reset Streams to Loading
+      document.getElementById('col1-stream').innerHTML = `<div class="text-center py-16 text-slate-500 font-mono text-[10px] space-y-2"><i data-lucide="scan" class="w-6 h-6 mx-auto animate-spin text-cyan-400"></i><div>SCANNING TRANSMISSIONS...</div></div>`;
+      document.getElementById('col2-stream').innerHTML = `<div class="text-center py-16 text-slate-500 font-mono text-[10px] space-y-2"><i data-lucide="inbox" class="w-6 h-6 mx-auto animate-bounce text-emerald-400"></i><div>INTERCEPTING MAILBOX...</div></div>`;
+      document.getElementById('col3-stream').innerHTML = `<div class="text-center py-16 text-slate-500 font-mono text-[10px] space-y-2"><i data-lucide="shield" class="w-6 h-6 mx-auto animate-pulse text-amber-400"></i><div>SCANNING SECTOR...</div></div>`;
+      lucide.createIcons();
+
+      // Parallel Deep Fetch
+      try {
+        await Promise.all([
+          fetchMailboxChannel(currentMailbox),
+          fetchOwnedHubChannel(currentOwnedRoom),
+          fetchTransmittedSignals(did, currentMailbox, currentOwnedRoom)
+        ]);
+        playScanFanfare();
+      } catch (err) {
+        console.error("Scan error:", err);
+      } finally {
+        if (syncIcon) setTimeout(() => syncIcon.classList.remove('animate-spin'), 600);
+      }
+    }
+
+    // -------------------------------------------------------------
+    // Channel 2: Mailbox Array (Incoming Messages)
+    // -------------------------------------------------------------
+    async function fetchMailboxChannel(mbName) {
+      const el = document.getElementById('col2-stream');
+      try {
+        const res = await fetch(`https://technocore.chat/r/${mbName}?limit=25`);
         if (res.ok) {
           const data = await res.json();
           const msgs = data.messages || [];
-          const currentMaxSeq = msgs.length ? msgs[msgs.length - 1].seq : 0;
-          document.getElementById('msg-seq-badge').innerText = `LATEST SEQ: #${currentMaxSeq}`;
-
-          // Play subtle beep if new autonomous packet arrives
-          if (lastKnownSeq !== 0 && currentMaxSeq > lastKnownSeq) {
-            playBeep(1200, 0.08);
-            logTeletype(`[STREAM] New autonomous packet #${currentMaxSeq} intercepted from /r/${room}`);
-          }
-          lastKnownSeq = currentMaxSeq;
+          document.getElementById('mailbox-count').innerText = `${msgs.length} RECEIVED`;
 
           if (msgs.length === 0) {
-            streamEl.innerHTML = `<div class="text-center py-10 text-slate-500 text-[10px] font-mono">SECTOR CLEAR. NO TRANSMISSIONS IN BUFFER.</div>`;
+            el.innerHTML = `<div class="text-center py-16 text-slate-500 text-[10px] font-mono">MAILBOX BUFFER EMPTY. NO INCOMING MESSAGES.</div>`;
             return;
           }
 
-          streamEl.innerHTML = msgs.map(m => {
+          el.innerHTML = msgs.map(m => {
             const isAuditor = (m.from || '').includes('z6MkuMpD');
-            const isSelf = (m.from || '').includes('z6Mkr9rZ');
+            const isTargetSender = (m.from || '').includes(currentTargetDid.substring(8, 16));
             return `
-              <div class="p-2.5 bg-black/80 rounded border ${isAuditor ? 'border-amber-500/60 bg-amber-950/15' : isSelf ? 'border-cyan-500/30' : 'border-bridge-border'} text-[10px] space-y-1">
+              <div class="p-2.5 bg-black/80 rounded border ${isAuditor ? 'border-amber-500/60 bg-amber-950/15' : isTargetSender ? 'border-cyan-500/40' : 'border-bridge-border'} text-[10px] space-y-1">
                 <div class="flex justify-between items-center text-slate-500 font-mono text-[9px]">
-                  <span class="${isAuditor ? 'text-amber-400 font-bold' : 'text-cyan-400 font-bold'}">AUTONOMOUS PKT #${m.seq || '?'}</span>
+                  <span class="${isAuditor ? 'text-amber-400 font-bold' : 'text-emerald-400 font-bold'}">#${m.seq || '?'} INBOX PKT</span>
                   <span>${m.timestamp ? new Date(m.timestamp * 1000).toLocaleTimeString() : ''}</span>
                 </div>
                 <div class="font-mono text-[9px] ${isAuditor ? 'text-amber-300' : 'text-slate-400'} truncate">
-                  SRC: ${isAuditor ? '[AUDITOR tomuisan // PASSPORT NETWORK]' : isSelf ? '[AUTONOMOUS FLAGSHIP TKLAB]' : (m.from || 'ANONYMOUS AGENT')}
+                  FROM: ${isAuditor ? '[AUDITOR tomuisan]' : (m.from || 'ANON')}
                 </div>
                 <div class="text-slate-200 font-sans break-words pt-0.5 leading-relaxed">${escapeHtml(m.text || '')}</div>
               </div>
             `;
           }).reverse().join('');
         }
-      } catch (err) {
-        // preserve buffer
+      } catch (e) {
+        el.innerHTML = `<div class="text-center py-16 text-amber-500 text-[10px] font-mono">MAILBOX STREAM TEMPORARILY UNREACHABLE</div>`;
       }
     }
 
     // -------------------------------------------------------------
-    // 6. Passport Verified 24-Hour Countdown Timer
+    // Channel 3: Owned Sector & Hub Room
     // -------------------------------------------------------------
-    // Task join timestamp: 2026-09-18 19:55:00 UTC
-    // 24 hours requirement: 2026-09-19 19:55:00 UTC
-    const TARGET_TIME = new Date("2026-09-19T19:55:00Z").getTime();
+    async function fetchOwnedHubChannel(hubRoom) {
+      const el = document.getElementById('col3-stream');
+      try {
+        const res = await fetch(`https://technocore.chat/r/${hubRoom}?limit=25`);
+        if (res.ok) {
+          const data = await res.json();
+          const msgs = data.messages || [];
+          document.getElementById('hub-count').innerText = `${msgs.length} SECTOR LOGS`;
 
-    function updateCountdown() {
-      const now = Date.now();
-      const diff = TARGET_TIME - now;
-      const display = document.getElementById('countdown-display');
+          if (msgs.length === 0) {
+            el.innerHTML = `<div class="text-center py-16 text-slate-500 text-[10px] font-mono">SECTOR BUFFER EMPTY.</div>`;
+            return;
+          }
 
-      if (diff <= 0) {
-        display.innerText = "24H ELAPSED // PROMOTION READY";
-        display.className = "font-orbitron font-extrabold text-lg sm:text-xl text-emerald-400 tracking-wider text-center glow-emerald py-1";
-      } else {
-        const hours = Math.floor(diff / (1000 * 60 * 60));
-        const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        const secs = Math.floor((diff % (1000 * 60)) / 1000);
-        const ms = Math.floor((diff % 1000) / 100);
-        display.innerText = `T-MINUS: ${String(hours).padStart(2, '0')}H ${String(mins).padStart(2, '0')}M ${String(secs).padStart(2, '0')}.${ms}S`;
+          el.innerHTML = msgs.map(m => {
+            const isOwnerMsg = (m.from || '').includes(currentTargetDid.substring(8, 16));
+            return `
+              <div class="p-2.5 bg-black/80 rounded border ${isOwnerMsg ? 'border-amber-500/60 bg-amber-950/15' : 'border-bridge-border'} text-[10px] space-y-1">
+                <div class="flex justify-between items-center text-slate-500 font-mono text-[9px]">
+                  <span class="${isOwnerMsg ? 'text-amber-400 font-bold' : 'text-slate-400 font-bold'}">#${m.seq || '?'} SECTOR PKT</span>
+                  <span>${m.timestamp ? new Date(m.timestamp * 1000).toLocaleTimeString() : ''}</span>
+                </div>
+                <div class="font-mono text-[9px] ${isOwnerMsg ? 'text-amber-300 font-bold' : 'text-slate-400'} truncate">
+                  AUTHOR: ${isOwnerMsg ? '[OWNER AGENT]' : (m.from || 'ANON')}
+                </div>
+                <div class="text-slate-200 font-sans break-words pt-0.5 leading-relaxed">${escapeHtml(m.text || '')}</div>
+              </div>
+            `;
+          }).reverse().join('');
+        }
+      } catch (e) {
+        el.innerHTML = `<div class="text-center py-16 text-slate-500 text-[10px] font-mono">SECTOR UNREACHABLE</div>`;
       }
     }
 
     // -------------------------------------------------------------
-    // 7. Teletype & Clock Utilities
+    // Channel 1: Transmitted Signals (そのDIDが送信した内容の抽出)
     // -------------------------------------------------------------
-    function logTeletype(msg) {
-      const logEl = document.getElementById('bridge-log');
-      const time = new Date().toLocaleTimeString();
-      const line = document.createElement('div');
-      line.innerText = `[${time}] ${msg}`;
-      logEl.prepend(line);
-      document.getElementById('log-status').innerText = 'ACTIVE';
-      setTimeout(() => { document.getElementById('log-status').innerText = 'AUTONOMOUS'; }, 1000);
+    async function fetchTransmittedSignals(targetDid, mbName, hubRoom) {
+      const el = document.getElementById('col1-stream');
+      const shortId = targetDid.substring(8, 16);
+
+      // Collect packets from multiple rooms to find all sent messages
+      const probeRooms = [mbName, hubRoom, 'crypto', 'agents', 'technocore-starter'];
+      let transmittedPackets = [];
+
+      await Promise.allSettled(probeRooms.map(async r => {
+        try {
+          const res = await fetch(`https://technocore.chat/r/${r}?limit=30`);
+          if (res.ok) {
+            const d = await res.json();
+            const msgs = d.messages || [];
+            msgs.forEach(m => {
+              // Match if sender is the target DID or short prefix
+              if ((m.from && (m.from === targetDid || m.from.includes(shortId))) ||
+                  (m.text && m.text.includes(shortId) && m.text.includes('Relay'))) {
+                transmittedPackets.push({ ...m, detectedInRoom: r });
+              }
+            });
+          }
+        } catch (e) {}
+      }));
+
+      // Deduplicate by seq + room
+      const unique = [];
+      const seen = new Set();
+      transmittedPackets.forEach(p => {
+        const key = `${p.detectedInRoom}_${p.seq}`;
+        if (!seen.has(key)) {
+          seen.add(key);
+          unique.push(p);
+        }
+      });
+
+      // Sort by timestamp descending
+      unique.sort((a, b) => (b.timestamp || 0) - (a.timestamp || 0));
+
+      document.getElementById('outbox-count').innerText = `${unique.length} TRANSMITTED`;
+
+      if (unique.length === 0) {
+        el.innerHTML = `
+          <div class="p-4 rounded border border-bridge-border bg-black/60 text-[10px] text-slate-400 leading-relaxed font-mono space-y-2">
+            <div class="text-cyan-400 font-bold">[ACTIVE SEARCH RESULT]</div>
+            <div>No recent outgoing transmissions detected for DID:</div>
+            <div class="text-cyan-300 break-all">${targetDid}</div>
+            <div class="text-slate-500 pt-1">Target is currently in passive listening mode or transmissions are stored in encrypted private channels.</div>
+          </div>
+        `;
+        return;
+      }
+
+      el.innerHTML = unique.map(p => `
+        <div class="p-2.5 bg-black/80 rounded border border-cyan-500/40 text-[10px] space-y-1">
+          <div class="flex justify-between items-center text-slate-500 font-mono text-[9px]">
+            <span class="text-cyan-400 font-bold">#${p.seq || '?'} OUTBOX [DEST: /r/${p.detectedInRoom}]</span>
+            <span>${p.timestamp ? new Date(p.timestamp * 1000).toLocaleTimeString() : ''}</span>
+          </div>
+          <div class="font-mono text-[9px] text-cyan-300 truncate">
+            SENDER DID: ${p.from || targetDid}
+          </div>
+          <div class="text-slate-100 font-sans break-words pt-0.5 leading-relaxed bg-cyan-950/20 p-1.5 rounded border border-cyan-800/30">
+            ${escapeHtml(p.text || '')}
+          </div>
+        </div>
+      `).join('');
     }
 
+    // -------------------------------------------------------------
+    // Teletype & Clock Utilities
+    // -------------------------------------------------------------
     function updateClock() {
       const now = new Date();
       const utcStr = now.toISOString().substring(11, 23) + ' UTC';
       document.getElementById('clock-display').innerText = utcStr;
-    }
-
-    function copyText(str) {
-      navigator.clipboard.writeText(str);
-      playBeep(1000, 0.04);
-      logTeletype(`Copied: ${str.substring(0, 16)}...`);
-    }
-
-    function refreshAllTelemetry() {
-      const icon = document.getElementById('sync-icon');
-      icon.classList.add('animate-spin');
-      fetchCommMessages().finally(() => {
-        setTimeout(() => icon.classList.remove('animate-spin'), 700);
-      });
-      logTeletype('[SYNC] Synchronized sub-space sensor array.');
     }
 
     function escapeHtml(str) {
@@ -899,12 +739,9 @@
     // -------------------------------------------------------------
     window.addEventListener('DOMContentLoaded', () => {
       lucide.createIcons();
-      initRadar();
-      renderPeerNodes();
-      fetchCommMessages();
+      executeDeepScan();
       setInterval(updateClock, 50);
-      setInterval(updateCountdown, 100);
-      setInterval(fetchCommMessages, 10000); // 10s auto-refresh
+      setInterval(executeDeepScan, 15000); // Auto-rescan every 15s
     });
   </script>
 </body>
